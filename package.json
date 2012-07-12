@@ -1,0 +1,19 @@
+{
+  "author": "Dave Mackintosh (http://davemackintosh.co.uk)",
+  "name": "ubuif",
+  "description": "ubui's framework",
+  "version": "0.0.0",
+  "homepage": "http://ubui.co/ubuif",
+  "repository": {
+    "url": ""
+  },
+  "scripts": {
+    "test": "ubuif test"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
