@@ -11,7 +11,9 @@
     "test": "ubuif test"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "glob": "*"
+  },
   "optionalDependencies": {},
   "engines": {
     "node": "*"
