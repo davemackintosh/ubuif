@@ -7,11 +7,17 @@ function Ubui_Autoloader (lib) {
 		path = require('path'),
 		//Includes the library
 		lib = lib ? path.normalize(lib) : 'library/Ubui/*',
-		//Where we want our liibrary
-		out_lib = {};
+		//Options for our glob
+		gloptions = {
+			nosort: true,
+			sync: true
+		};
+
+	//Do we already have a library namespace?
+	Ubuif.lib = Ubuif.hasOwnProperty('lib') ? Ubuif.lib : {};
 		
 	//Read the library out
-	new glob(lib, function (err, results) {
+	new glob(lib, gloptions, function (err, results) {
 		//Check if an error occured
 		if (err) {
 			throw Error('\x1b[32mFatal Error:\x1b[0m ' + err);
@@ -19,11 +25,10 @@ function Ubui_Autoloader (lib) {
 		
 		//Otherwise lets just populate the library object
 		results.forEach(function (result) {
+			//TODO think of a way to avoid this scenario
 			result = result.replace('library/', '');
-			Ubuif.Autoloader[path.basename(result)] = require(result);
+			Ubuif.lib[path.basename(result)] = require(result);
 		});
-		
-		return out_lib;
 	});
 	
 	return Ubuif.Autoloader;
