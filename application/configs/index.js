@@ -1,3 +1,10 @@
+/**
+ * This doesn't necessarily need to be a function,
+ * its just nice to have environments picked up from
+ * the node environment variable or defaults to production.
+ *
+ * See Ubui/Configuration && Ubui/Configuration/Config
+ */
 function UbuiConfig () {
 	
 	var

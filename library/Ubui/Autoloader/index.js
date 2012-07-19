@@ -1,4 +1,4 @@
-function Ubui_Autoloader (lib) {
+Ubuif.Autoloader = function (lib) {
 	
 	var
 		//Require the glob module
@@ -13,9 +13,6 @@ function Ubui_Autoloader (lib) {
 			sync: true
 		};
 
-	//Do we already have a library namespace?
-	Ubuif.lib = Ubuif.hasOwnProperty('lib') ? Ubuif.lib : {};
-		
 	//Read the library out
 	new glob(lib, gloptions, function (err, results) {
 		//Check if an error occured
@@ -23,15 +20,14 @@ function Ubui_Autoloader (lib) {
 			throw Error('\x1b[32mFatal Error:\x1b[0m ' + err);
 		}
 		
-		//Otherwise lets just populate the library object
+		//Otherwise lets just include our library
 		results.forEach(function (result) {
-			//TODO think of a way to avoid this scenario
 			result = result.replace('library/', '');
-			Ubuif.lib[path.basename(result)] = require(result);
+			require(result);
 		});
 	});
 	
 	return Ubuif.Autoloader;
 }
-Ubuif.Autoloader = Ubui_Autoloader;
-module.exports = Ubui_Autoloader;
+
+module.exports = Ubuif.Autoloader;
