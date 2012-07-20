@@ -1,11 +1,10 @@
 /**
- * This doesn't necessarily need to be a function,
- * its just nice to have environments picked up from
- * the node environment variable or defaults to production.
+ * This doesn't necessarily need to be a named function,
+ * it just needs to be a function so that it can be called.
  *
  * See Ubui/Configuration && Ubui/Configuration/Config
  */
-function UbuiConfig () {
+function UbuiConfig (environment) {
 	
 	var
 		config = [],
@@ -21,13 +20,38 @@ function UbuiConfig () {
 		}
 	};
 	
-	config['testing'] = {};
+	config['testing'] = {
+		"db": {
+			"adapter": "ubui_mysql",
+			"server": "localhost",
+			"username": "root",
+			"password": "",
+			"database": "ubui_production"
+		}
+	};
 	
-	config['staging'] = {};
+	config['staging'] = {
+		"db": {
+			"adapter": "ubui_mysql",
+			"server": "localhost",
+			"username": "root",
+			"password": "",
+			"database": "ubui_production"
+		}
+	};
 	
-	config['production'] = {};
+	config['production'] = {
+		"db": {
+			"adapter": "ubui_mysql",
+			"server": "localhost",
+			"username": "root",
+			"password": "",
+			"database": "ubui_production"
+		}
+	};
 	
-	resources.layout.enabled = true;
+	//Return the environment that we wanted
+	return config[environment];
 };
 
 module.exports = UbuiConfig;
