@@ -17,9 +17,6 @@ Ubuif.Configuration = function (Config_Location) {
 	//Load the config file up
 	this.config = require(Config_Location)(Ubuif.ENV);
 
-	//Open the Config subclass
-	require('./Config');
-
 	//Return a new Config instance
-	return new Ubuif.Config(this.config);
+	return new require('./Config').Config(this.config);
 };

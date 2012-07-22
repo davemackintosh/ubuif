@@ -15,11 +15,11 @@ Ubuif.Bootstrap = function () {
 			Ubuif.argv = ['production'];
 		}
 		//Set the environment
-		this.setEnv(Ubuif.argv[0].toString());
+		this.setEnv(Ubuif.argv[0]);
 		
 		//Load the configuration
 		Ubuif.private.config = new Ubuif.Configuration(Config_Location);
-		console.log(Ubuif.private.config);
+
 		return this;
 	};
 	
@@ -30,6 +30,12 @@ Ubuif.Bootstrap = function () {
 	
 	this.getEnv = function () {
 		return Ubuif.ENV;
+	};
+	
+	//Add some methods to get helpful elements
+	//Such as cli arguments, process variables
+	Ubuif.getCliArg = function (index) {
+		return Ubuif.argv[index] ? Ubuif.argv[index] : null;
 	};
 	
 	return this;

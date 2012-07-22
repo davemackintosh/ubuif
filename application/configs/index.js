@@ -17,6 +17,9 @@ function UbuiConfig (environment) {
 			"username": "root",
 			"password": "",
 			"database": "ubui_production"
+		},
+		"server": {
+			"port": 80
 		}
 	};
 	
@@ -27,6 +30,9 @@ function UbuiConfig (environment) {
 			"username": "root",
 			"password": "",
 			"database": "ubui_production"
+		},
+		"server": {
+			"port": 80
 		}
 	};
 	
@@ -37,6 +43,9 @@ function UbuiConfig (environment) {
 			"username": "root",
 			"password": "",
 			"database": "ubui_production"
+		},
+		"server": {
+			"port": 80
 		}
 	};
 	
@@ -47,6 +56,9 @@ function UbuiConfig (environment) {
 			"username": "root",
 			"password": "",
 			"database": "ubui_production"
+		},
+		"server": {
+			"port": 80
 		}
 	};
 	

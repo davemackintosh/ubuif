@@ -1,4 +1,4 @@
-Ubuif.Config = function (conf) {
+function Config (conf) {
 	/*
 	 * This class is just a wrapper, see Ubui/Configuration
 	 * for the class that loads the configuration
@@ -7,26 +7,24 @@ Ubuif.Config = function (conf) {
 		throw TypeError('The configuration passed is the incorrect format');
 	}
 	
+	this.propertyObjectLoop = function (property) {
+		var prop, returnObj = false;
+		
+		for (prop in property) {
+			if (property.hasOwnProperty(prop)) {
+				this[prop] = property[prop];
+			}
+		}
+	};
+	
 	/*
 	 * Loop over the configuration and
 	 * create the config object out of
 	 * this class.
 	 */
-	
-	
-	this.propertyObjectLoop = function (property) {
-		var prop;
-		
-		for (prop in property) {
-			if (typeof property[prop] === 'object') {
-				this[prop] = this.propertyObjectLoop(property[prop]);
-			} else {
-				this[prop] = property[prop];
-			}
-		}
-	};
+	this.propertyObjectLoop(conf);
 	 
 	return this;
 };
 
-module.exports = Ubuif.Config;
+module.exports.Config = Config;
