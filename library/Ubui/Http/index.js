@@ -1,4 +1,4 @@
-Ubuif.Http = function () {
+function Http () {
 	var
 		http = require('http'),
 		server = undefined;
@@ -6,11 +6,16 @@ Ubuif.Http = function () {
 	/*This function is simply a wrapper for
 	our other classes Http_Request and Http_Response*/
 	server = http.createServer(function (request, response) {
-		Ubuif.Http_Request = new Http_Request(request);
-		Ubuif.Http_Response = new Http_Response(response);
-		return Ubuif;
+		//Fire the request and response classes
+		new Ubuif.Http_Request(request);
+		new Ubuif.Http_Response(response);
 	});
 	
 	//Listen to the port specified in the config file
 	server.listen(Ubuif.private.config.server.port);
-}
+	
+	return this;
+};
+
+Ubuif.Http = Http;
+module.exports = Http;

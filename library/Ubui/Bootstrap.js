@@ -19,6 +19,9 @@ Ubuif.Bootstrap = function () {
 		
 		//Load the configuration
 		Ubuif.private.config = new Ubuif.Configuration(Config_Location);
+		
+		//Start the http server
+		Ubuif.Http = new Ubuif.Http();
 
 		return this;
 	};

@@ -19,7 +19,7 @@ function UbuiConfig (environment) {
 			"database": "ubui_production"
 		},
 		"server": {
-			"port": 80
+			"port": 8080
 		}
 	};
 	
@@ -32,7 +32,7 @@ function UbuiConfig (environment) {
 			"database": "ubui_production"
 		},
 		"server": {
-			"port": 80
+			"port": 8080
 		}
 	};
 	
@@ -45,7 +45,7 @@ function UbuiConfig (environment) {
 			"database": "ubui_production"
 		},
 		"server": {
-			"port": 80
+			"port": 8080
 		}
 	};
 	
@@ -58,7 +58,7 @@ function UbuiConfig (environment) {
 			"database": "ubui_production"
 		},
 		"server": {
-			"port": 80
+			"port": 8080
 		}
 	};
 	
