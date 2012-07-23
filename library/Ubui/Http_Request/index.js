@@ -12,15 +12,20 @@ function Http_Request (request) {
 		return (request.method === 'POST');
 	};
 	
-	this.getController = function () {
+	this.getControllerName = function () {
 		return this.getUrlParts()[0];
 	};
 	
-	this.getAction = function () {
+	this.getActionName = function () {
 		return this.getUrlParts()[1];
 	};
 	
-	console.log(this.getUrlParts());
+	//Load the controller that we want
+	if () {
+		//We have the controller
+		
+	}
+	
 }
 
 Ubuif.Http_Request = Http_Request;

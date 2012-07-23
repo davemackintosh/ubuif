@@ -19,7 +19,11 @@ function UbuiConfig (environment) {
 			"database": "ubui_production"
 		},
 		"server": {
-			"port": 8080
+			"port": 8080,
+			"404": {
+				"controller": "error",
+				"action": "404"
+			}
 		}
 	};
 	

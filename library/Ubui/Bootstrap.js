@@ -6,6 +6,9 @@ Ubuif.Bootstrap = function () {
 	//Private, read-only storage
 	Ubuif.private = {};
 	
+	//Set up a space for our controllers
+	Ubuif.Controllers = {};
+	
 	//We want the cli arguments used to start the instance
 	Ubuif.argv = process.argv.slice(2);
 	
@@ -19,6 +22,9 @@ Ubuif.Bootstrap = function () {
 		
 		//Load the configuration
 		Ubuif.private.config = new Ubuif.Configuration(Config_Location);
+		
+		//Lock the private storage to read only
+		Object.preventExtensions(Ubuif.private.config);
 		
 		//Start the http server
 		Ubuif.Http = new Ubuif.Http();
