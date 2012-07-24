@@ -11,12 +11,6 @@ Ubuif.View = function () {
 	 * html, jade, mustache, etc here
 	 */
 	
-	this.resolve = function (resolve) {
-		if (path.resolve(resolve)) {
-			
-		}
-	};
-	
 	this.getLayout = function () {
 		
 	};

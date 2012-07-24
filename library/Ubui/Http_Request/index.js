@@ -28,10 +28,10 @@ function Http_Request (request) {
 			requirePath = 'Ubuif/../../application/controllers/'+controller;
 
 		if (path.resolve(requirePath)) {
-			Ubuif.Http_Response.prototype[controller] = new require(requirePath)();
-			Ubuif.Http_Response[controller].init();
+			Ubuif.Http.prototype[controller] = new require(requirePath)();
+			Ubuif.Http[controller].init();
 			
-			return Http_Response
+			return Ubuif.Http;
 		} else {
 			return Ubuif.Http_Response.FourOhFour();
 		}
