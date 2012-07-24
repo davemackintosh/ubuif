@@ -1,4 +1,4 @@
-function Index () {
+function index () {
 	
 	this.init = function () {};
 	
@@ -7,4 +7,4 @@ function Index () {
 	}
 }
 
-module.exports = Index;
+module.exports = index;

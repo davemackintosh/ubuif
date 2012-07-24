@@ -2,7 +2,7 @@ function Http_Response (response) {
 
 	var
 		_response = response,
-		_controller = _action;
+		_controller, _action;
 	
 	this.getController = function () {
 		
@@ -12,7 +12,7 @@ function Http_Response (response) {
 	
 	};
 	
-	this.FourOhFour = function () {
+	this.fourOhFour = function () {
 		_response.writeHead(404);
 		_response.close();
 	};
