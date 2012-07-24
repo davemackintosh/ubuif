@@ -21,10 +21,6 @@ function Http_Request (request) {
 	};
 	
 	//Load the controller that we want
-	if () {
-		//We have the controller
-		
-	}
 	
 }
 

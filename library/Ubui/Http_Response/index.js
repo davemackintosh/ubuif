@@ -1,16 +1,24 @@
 function Http_Response (response) {
 
-	var _response = response;
+	var
+		_response = response,
+		_controller = _action;
 	
-	this.404 = function () {
-		_response.writeHead(404);
+	this.getController = function () {
 		
+	};
+	
+	this.getAction = function () {
+	
+	};
+	
+	this.FourOhFour = function () {
+		_response.writeHead(404);
 		_response.close();
 	};
 	
 	this.setHeader = function (header, options) {
 		_response.writeHead(header, options);
-		
 	};
 }
 
