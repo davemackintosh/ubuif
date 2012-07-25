@@ -24,7 +24,7 @@ Ubuif.Colour = function () {
 			string = string.replace('$' + colour, this.prefix + this.colours[colour]);
 		}
 		
-		return string;
+		return string + this.prefix + this.colours.clear;
 	};
 }
 

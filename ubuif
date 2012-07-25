@@ -1,13 +1,31 @@
 #!/usr/bin/env node
 
-var glob = require('glob').Glob;
-var path = require('path');
-var lib = {};
-
-new glob('./library/Ubui/*', null, function (a, b) {
-	b.forEach(function (a) {
-		console.log('+ ' + a);
-		lib[path.basename(a)] = require(a);
-	});
+(function () {
+	var args = process.argv.slice(2),
+		exec = require('child_process').exec;
 	
-});
+	args.forEach(function (arg) {
+		switch (arg) {
+			case 'start':
+				require('./library/Ubui');
+				return;
+			break;
+			case 'stop':
+				//I am aware this will kill the grep instance too
+				//but I don't care. Why should we?
+				exec('ps aux | grep ubui.js | cut -c11-15', function (a, b) {
+					var ubuifs = b.split("\n");
+					console.log(ubuifs);
+					ubuifs.forEach(function (pid) {
+						if (pid !== '') {
+							console.log('\x1b[33mAttempting to kill process pid: ' + pid + '\x1b[0m');
+							exec('kill ' + pid, function (a, b) {
+								console.log(a, b);
+							});
+						}
+					});
+				});
+			break;
+		}
+	});
+})();

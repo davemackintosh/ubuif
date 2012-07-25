@@ -12,13 +12,13 @@ function Http () {
 		_response = new Ubuif.Http_Response(response);
 		
 		_request.resolveController();
-		
-		//A welcome message for the admin
-		console.log(Ubuif.ReColour('$greenServer started at' + _port));
 	});
 	
 	//Listen to the port specified in the config file
 	_server.listen(_port);
+	
+	//A welcome message for the admin
+	console.log(Ubuif.ReColour('$greenServer started at :' + _port));
 	
 	//Methods for getting request information
 	this.getRequest = function () {
