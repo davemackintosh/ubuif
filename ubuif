@@ -13,7 +13,7 @@
 			case 'stop':
 				//I am aware this will kill the grep instance too
 				//but I don't care. Why should we?
-				exec('ps aux | grep ubui.js | cut -c11-15', function (a, b) {
+				exec('ps aux | grep "ubui.js" | cut -c11-15', function (a, b) {
 					var ubuifs = b.split("\n");
 					console.log(ubuifs);
 					ubuifs.forEach(function (pid) {
