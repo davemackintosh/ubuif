@@ -13,13 +13,14 @@
 			case 'stop':
 				//I am aware this will kill the grep instance too
 				//but I don't care. Why should we?
-				exec('ps aux | grep "ubui.js" | cut -c11-15', function (a, b) {
+				exec('ps aux | grep "ubuif.js"', function (a, b) {
 					var ubuifs = b.split("\n");
-					console.log(ubuifs);
 					ubuifs.forEach(function (pid) {
-						if (pid !== '') {
+						console.log(pid.replace(/(\s+)/gi, ' ').split(' ').length);
+						pid = pid.replace(/(\s+)/gi, ' ').split(' ')[1];
+						if (pid && pid !== '') {
 							console.log('\x1b[33mAttempting to kill process pid: ' + pid + '\x1b[0m');
-							exec('kill ' + pid, function (a, b) {
+							exec('kill -9 ' + pid, function (a, b) {
 								console.log(a, b);
 							});
 						}
