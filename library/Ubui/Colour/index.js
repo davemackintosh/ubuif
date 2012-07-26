@@ -2,9 +2,12 @@ Ubuif.Colour = function () {
 	
 	this.prefix = "\x1b[";
 	this.colours = {
-		"red": '33m',
+		"red": '31m',
 		"green": '32m',
 		"blue": '34m',
+		"yellow": "33m",
+		"purple": "35m",
+		"aqua": "36m",
 		"clear": '0m'
 	};
 	
