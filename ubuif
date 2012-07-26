@@ -1,32 +1,54 @@
 #!/usr/bin/env node
 
 (function () {
-	var args = process.argv.slice(2),
-		exec = require('child_process').exec;
+	var exec = require('child_process').exec;
 	
-	args.forEach(function (arg) {
+	//Fix the process.argv object
+	process.argv = process.argv.slice(2);
+	
+	//Loop over our arguments
+	process.argv.forEach(function (arg, i) {
 		switch (arg) {
 			case 'start':
+				//Delete this argument from argv
+				delete process.argv[i];
+				//Include the framework and we're rolling
 				require('./library/Ubui');
 				return;
 			break;
 			case 'stop':
-				//I am aware this will kill the grep instance too
-				//but I don't care. Why should we?
-				exec('ps aux | grep "ubuif.js"', function (a, b) {
-					var ubuifs = b.split("\n");
-					ubuifs.forEach(function (pid) {
-						console.log(pid.replace(/(\s+)/gi, ' ').split(' ').length);
-						pid = pid.replace(/(\s+)/gi, ' ').split(' ')[1];
-						if (pid && pid !== '') {
-							console.log('\x1b[33mAttempting to kill process pid: ' + pid + '\x1b[0m');
-							exec('kill -9 ' + pid, function (a, b) {
-								console.log(a, b);
-							});
-						}
-					});
-				});
+				kill();
+			break;
+			case 'restart':
+				kill(true);
 			break;
 		}
 	});
+	
+	//The kill function
+	function kill (restart) {
+		exec('ps aux | grep "ubuif.js"', function (a, b) {
+			var ubuifs = b.split("\n");
+			ubuifs.forEach(function (pid) {
+				if (pid.search('grep') !== -1 || !pid) {
+					if (!pid) {
+						console.log('\x1b[32mNothing to kill! ...shame\x1b[0m');
+					}
+					return true;
+				}
+				//Thanks to @dan_tamas for this snippet
+				pid = pid.replace(/(\s+)/gi, ' ').split(' ')[1];
+				//Let the user know we're killing a PID
+				console.log('\x1b[33mAttempting to kill process pid: ' + pid + '\x1b[0m');
+				//Actually do the job
+				exec('kill -9 ' + pid, function (a, b) {
+					if (restart) {
+						//Include the framework and we're rolling
+						require('./library/Ubui');
+					}
+				});
+			});
+		});
+		return true;
+	}
 })();
