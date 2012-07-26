@@ -13,4 +13,4 @@ new Ubuif.Autoloader();
  * and its safe to assume running the
  * bootstrap will work OK.
  */
-Ubuif.Bootstrap().run('../../../application/configs');
+Ubuif.Bootstrap().run('Ubui/../../application/configs');

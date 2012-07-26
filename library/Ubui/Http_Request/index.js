@@ -14,11 +14,19 @@ function Http_Request (request) {
 	};
 	
 	this.getControllerName = function () {
-		return this.getUrlParts()[0];
+		if (this.getUrlParts()[0]) {
+			return this.getUrlParts()[0];
+		} else {
+			return 'index';
+		}
 	};
 	
 	this.getActionName = function () {
-		return this.getUrlParts()[1];
+		if (this.getUrlParts()[1]) {
+			return this.getUrlParts()[1];
+		} else {
+			return 'index';
+		}
 	};
 	
 	//Load the controller that we want
@@ -28,9 +36,15 @@ function Http_Request (request) {
 			requirePath = 'Ubuif/../../application/controllers/'+controller;
 
 		if (path.resolve(requirePath)) {
-			Ubuif.Http.prototype[controller] = new require(requirePath)();
+			Ubuif.Http[controller] = Object.create(Ubuif.Http, {
+				name: {
+					value: new require(requirePath)(),
+					enumerable: true
+				}
+			});
+			console.log(Ubuif.Http);
 			Ubuif.Http[controller].init();
-			
+
 			return Ubuif.Http;
 		} else {
 			return Ubuif.Http_Response.FourOhFour();
