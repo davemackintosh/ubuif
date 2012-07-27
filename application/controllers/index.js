@@ -1,4 +1,4 @@
-function Index () {
+function IndexController () {
 	
 	this.init = function () {};
 	
@@ -9,4 +9,4 @@ function Index () {
 	return this;
 }
 
-module.exports = Index;
+module.exports = IndexController;
