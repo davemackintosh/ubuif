@@ -33,16 +33,15 @@ function Http_Request (request) {
 	this.resolveController = function () {
 		var
 			controller = this.getControllerName(),
-			requirePath = 'Ubuif/../../application/controllers/'+controller;
+			requirePath = 'Ubuif/../../application/controllers/' + controller;
 
 		if (path.resolve(requirePath)) {
 			Ubuif.Http[controller] = Object.create(Ubuif.Http, {
-				name: {
-					value: new require(requirePath)(),
-					enumerable: true
+				controller: {
+					value: new require(requirePath)()
 				}
 			});
-			console.log(Ubuif.Http);
+			console.log(new require(requirePath)());
 			Ubuif.Http[controller].init();
 
 			return Ubuif.Http;
