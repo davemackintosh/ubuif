@@ -43,6 +43,8 @@
 				//Actually do the job
 				exec('kill -9 ' + pid, function (a, b) {
 					if (restart) {
+						//Delete this argument from argv
+						delete process.argv[i];
 						//Include the framework and we're rolling
 						require('./library/Ubui');
 					}
