@@ -20,13 +20,24 @@ function Http () {
 	//A welcome message for the admin
 	console.log(Ubuif.ReColour('$greenServer started at :' + _port));
 	
-	//Methods for getting request information
 	this.getRequest = function () {
 		return _request;
 	};
 	
 	this.getResponse = function () {
 		return _response;
+	};
+	
+	this.preDispatch = function () {
+		
+	};
+	
+	this.dispatch = function () {
+	
+	};
+	
+	this.postDispatch = function () {
+	
 	};
 	
 	return this;

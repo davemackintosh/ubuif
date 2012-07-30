@@ -5,10 +5,7 @@ Ubuif.Bootstrap = function () {
 	
 	//Private, read-only storage
 	Ubuif.private = {};
-	
-	//Set up a space for our controllers
-	Ubuif.Controllers = {};
-	
+
 	//We want the cli arguments used to start the instance
 	Ubuif.argv = process.argv.slice(2);
 

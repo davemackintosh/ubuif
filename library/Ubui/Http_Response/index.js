@@ -5,14 +5,14 @@ function Http_Response (response) {
 		_controller, _action;
 	
 	this.getController = function () {
-		
+		console.log(this.controller);
 	};
 	
 	this.getAction = function () {
 	
 	};
 	
-	this.fourOhFour = function () {
+	this.FourOhFour = function () {
 		_response.writeHead(404);
 		_response.close();
 	};
