@@ -13,8 +13,11 @@ function Http_Response (response) {
 	};
 	
 	this.FourOhFour = function () {
-		_response.writeHead(404);
-		_response.close();
+		_response.writeHead(404, {
+			"Content-Type": "text/plain"
+		});
+		_response.write("404 Not Found\n");
+		_response.end();
 	};
 	
 	this.setHeader = function (header, options) {

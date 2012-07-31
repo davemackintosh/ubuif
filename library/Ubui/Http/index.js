@@ -28,18 +28,6 @@ function Http () {
 		return _response;
 	};
 	
-	this.preDispatch = function () {
-		
-	};
-	
-	this.dispatch = function () {
-	
-	};
-	
-	this.postDispatch = function () {
-	
-	};
-	
 	return this;
 };
 

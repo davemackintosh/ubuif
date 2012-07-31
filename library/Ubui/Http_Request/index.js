@@ -33,15 +33,14 @@ function Http_Request (request) {
 	this.resolveController = function () {
 		var
 			controller = this.getControllerName(),
-			requirePath = 'Ubuif/../../application/controllers/' + controller,
-			controllerCall = controller + 'Controller';
+			requirePath = 'Ubuif/../../application/controllers/' + controller;
 
 		if (path.exists(requirePath)) {
 			Ubuif.Http_Response.controller = new (require(requirePath))();
 			
 			return this;
 		} else {
-			return Ubuif.Http_Response.FourOhFour();
+			return Ubuif.Http.getResponse().FourOhFour();
 		}
 	};
 }
