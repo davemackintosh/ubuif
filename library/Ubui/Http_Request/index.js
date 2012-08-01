@@ -35,9 +35,9 @@ function Http_Request (request) {
 			controller = this.getControllerName(),
 			requirePath = 'Ubuif/../../application/controllers/' + controller;
 
-		if (path.exists(requirePath)) {
-			Ubuif.Http_Response.controller = new (require(requirePath))();
-			
+		if (path.resolve(requirePath)) {
+			Ubuif.Http.getResponse().controller = new (require(requirePath))();
+			Ubuif.Http.getResponse().controller['indexAction'].call(this);
 			return this;
 		} else {
 			return Ubuif.Http.getResponse().FourOhFour();
