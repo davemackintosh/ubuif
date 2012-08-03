@@ -4,6 +4,10 @@ function Http_Request (request) {
 		_server = request.headers.host,
 		_request_uri = request.url,
 		path = require('path');
+		
+	// These are set by setController/Action
+	this.forceController = false;
+	this.forceAction	   = false;
 	
 	this.getUrlParts = function () {
 		return _request_uri.split('/').slice(1);
@@ -11,6 +15,10 @@ function Http_Request (request) {
 	
 	this.isPost = function () {
 		return (request.method === 'POST');
+	};
+	
+	this.getPost = function (key) {
+		return this;
 	};
 	
 	this.getControllerName = function () {
@@ -38,14 +46,27 @@ function Http_Request (request) {
 	this.resolveController = function () {
 		var
 			controller = this.fixName(this.getControllerName()),
-			action = this.fixName(this.getActionName()),
-			requirePath = 'application/controllers/' + controller,
+			action = this.getActionName(),
+			requirePath = 'Ubuif/../../application/controllers/' + controller + '.js',
 			response = Ubuif.Http.getResponse();
+		
+		// This is in case we've used setController	
+		if (this.forceController !== false) {
+			requirePath = 'Ubuif/../../application/controllers/' +
+				this.forceController + '.js';
+		}
+		
+		// This is in case we've used setAction
+		if (this.forceController !== false) {
+			action = this.forceAction;
+		}
 
 		Ubuif.FileSystem().isRequirable(requirePath, function (is) {
 			if (is === true) {
+				// Open the instance of the requested controller
+				// with the scope of Ubuif.Http
 				response.controller = new (require(requirePath))();
-				response.controller[action + 'Action'].call(this);
+				response.controller[action + 'Action'].call(Ubuif.Http);
 			} else {
 				Ubuif.Http.getResponse().FourOhFour();
 			}

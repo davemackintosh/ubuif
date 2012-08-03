@@ -3,7 +3,16 @@ Ubuif.FileSystem = function () {
 	var fs = require('fs');
 	
 	this.isRequirable = function (path, callback) {
-		this.isFile(path, callback);
+		path = path.toString();
+		
+		fs.stat(path, function (error, stats) {
+			if (error === null) {
+				callback(false);
+			} else {
+				callback(true);
+			}
+		});
+		
 		return this;
 	};
 	
@@ -11,7 +20,7 @@ Ubuif.FileSystem = function () {
 		path = path.toString();
 		
 		fs.stat(path, function (error, stats) {
-			if (error || !stats.isDirectory()) {
+			if (error === null || !stats.isDirectory()) {
 				callback(false);
 			} else {
 				callback(true);
@@ -25,13 +34,26 @@ Ubuif.FileSystem = function () {
 		path = path.toString();
 		
 		fs.stat(path, function (error, stats) {
-			if (error || !stats.isDirectory()) {
+			if (error === null || !stats.isDirectory()) {
 				callback(false);
 			} else {
 				callback(true);
 			}
 		});
 		
+		return this;
+	};
+	
+	this.getFileContents = function (file, callback) {
+		file = file.toString();
+		
+		fs.readFile(file, function (error, contents) {
+			if (error === null) {
+				callback(contents);
+			} else {
+				throw Error('Couldn\'t open the file "' + file + '"');
+			}
+		});
 		return this;
 	};
 	
