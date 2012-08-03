@@ -29,19 +29,28 @@ function Http_Request (request) {
 		}
 	};
 	
+	this.fixName = function (string) {
+		return string.charAt(0).toUpperCase() +
+			string.substr(1, string.length);
+	};
+	
 	//Load the controller that we want
 	this.resolveController = function () {
 		var
-			controller = this.getControllerName(),
-			requirePath = 'Ubuif/../../application/controllers/' + controller;
+			controller = this.fixName(this.getControllerName()),
+			action = this.fixName(this.getActionName()),
+			requirePath = 'application/controllers/' + controller,
+			response = Ubuif.Http.getResponse();
 
-		if (path.resolve(requirePath)) {
-			Ubuif.Http.getResponse().controller = new (require(requirePath))();
-			Ubuif.Http.getResponse().controller['indexAction'].call(this);
-			return this;
-		} else {
-			return Ubuif.Http.getResponse().FourOhFour();
-		}
+		Ubuif.FileSystem().isRequirable(requirePath, function (is) {
+			if (is === true) {
+				response.controller = new (require(requirePath))();
+				response.controller[action + 'Action'].call(this);
+			} else {
+				Ubuif.Http.getResponse().FourOhFour();
+			}
+		});
+		return this;
 	};
 }
 

@@ -1,8 +1,5 @@
 Ubuif.Bootstrap = function () {
 
-	//Somewhere to dump information
-	Ubuif.logs = [];
-	
 	//Private, read-only storage
 	Ubuif.private = {};
 
