@@ -4,7 +4,7 @@ Ubuif.View = function () {
 	this.DEFAULT_VIEWS    = 'Ubuif/../application/views/';
 	this.DEFAULT_PARTIALS = 'Ubuif/../application/partials/';
 	
-	this.path = require('path');
+	this.path = require('');
 	
 	/*
 	 * Need to think about how to get
