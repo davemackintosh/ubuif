@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+var vm = require('vm');
+var util = require('util');
+var fs = require('fs');
+
+var data = {
+	"title": "ubuif is awesome",
+	"body": "give it to your friends"
+};
+
+fs.readFile('../application/layouts/layout.html', function (e, c) {
+	var context = vm.createContext(data);
+	
+	console.log(vm.runInContext(c, context, 'layout.html'));
+});
