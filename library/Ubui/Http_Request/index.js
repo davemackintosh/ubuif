@@ -61,12 +61,10 @@ function Http_Request (request) {
 			action = this.forceAction;
 		}
 
-		Ubuif.FileSystem().isRequirable(requirePath, function (is) {
+		// Check its require-able and deliver the response
+		Ubuif.FileSystem.isRequirable(requirePath, function (is) {
 			if (is === true) {
-				// Open the instance of the requested controller
-				// with the scope of Ubuif.Http
-				response.controller = new (require(requirePath))();
-				response.controller[action + 'Action'].call(Ubuif.Http);
+				response.deliver(requirePath, action);
 			} else {
 				Ubuif.Http.getResponse().FourOhFour();
 			}
