@@ -19,7 +19,6 @@ function Http () {
 		if (_server.listen(_port)) {
 			// A welcome message for the user :)
 			console.log(Ubuif.ReColour('$greenServer started at :' + _port));
-	
 		}
 	} catch (e) {
 		throw Error(e);
