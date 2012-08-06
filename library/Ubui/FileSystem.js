@@ -1,4 +1,4 @@
-Ubuif.FileSystem = function () {
+function FileSystem () {
 	
 	var fs = require('fs');
 	
@@ -60,4 +60,5 @@ Ubuif.FileSystem = function () {
 	return this;
 };
 
+Ubuif.FileSystem = FileSystem();
 module.exports = Ubuif.FileSystem;
