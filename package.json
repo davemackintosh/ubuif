@@ -12,7 +12,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "glob": "*"
+    "glob": "*",
+    "mustache" : "*"
   },
   "optionalDependencies": {},
   "engines": {
