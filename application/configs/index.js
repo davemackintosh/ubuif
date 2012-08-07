@@ -19,11 +19,10 @@ function UbuiConfig (environment) {
 			"database": "ubui_production"
 		},
 		"server": {
-			"port": 8080,
-			"404": {
-				"controller": "error",
-				"action": "404"
-			}
+			"port": 8080
+		},
+		"front": {
+			"engine": "mustache"
 		}
 	};
 	
@@ -37,6 +36,9 @@ function UbuiConfig (environment) {
 		},
 		"server": {
 			"port": 8080
+		},
+		"front": {
+			"engine": "mustache"
 		}
 	};
 	
@@ -50,6 +52,9 @@ function UbuiConfig (environment) {
 		},
 		"server": {
 			"port": 8080
+		},
+		"front": {
+			"engine": "mustache"
 		}
 	};
 	
@@ -63,6 +68,9 @@ function UbuiConfig (environment) {
 		},
 		"server": {
 			"port": 8080
+		},
+		"front": {
+			"engine": "mustache"
 		}
 	};
 	
