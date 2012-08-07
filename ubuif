@@ -13,7 +13,7 @@
 				//Delete this argument from argv
 				delete process.argv[i];
 				//Include the framework and we're rolling
-				require('./library/Ubui');
+				require('./library/Ubuif');
 				return;
 			break;
 			case 'stop':
