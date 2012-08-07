@@ -3,7 +3,8 @@ function IndexController () {
 	this.init = function () {};
 	
 	this.indexAction = function () {
-		console.log(this);
+		Ubuif.View.title = 'UBUIF FRAMEWORK TEST';
+		Ubuif.View.name = 'Dave';
 	};
 	
 	return this;
