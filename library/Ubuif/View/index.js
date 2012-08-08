@@ -1,4 +1,4 @@
-Ubuif.View = function () {
+function View () {
 
 	// Our default rendering engine is Mustache.
 	var engine = Ubuif.private.config.front.engine || 
@@ -32,4 +32,7 @@ Ubuif.View = function () {
 	};
 	
 	return this;
-}
+};
+
+Ubuif.View = View;
+module.exports = View;
