@@ -63,10 +63,10 @@ function Http_Response (response) {
 		_response.controller[action + 'Action'].call(Ubuif.Http);
 		
 		// Tell the front end to render the view first
-		Ubuif.View.renderView(viewScript);
+		Ubuif.View().renderView(viewScript, Ubuif.View);
 		
 		// Then we want to render the layout
-		Ubuif.View.renderLayout();
+		Ubuif.View().renderLayout();
 		
 		// End the reponse
 		_response.end();
