@@ -66,7 +66,7 @@ function Http_Request (request) {
 			if (is === true) {
 				response.deliver(requirePath, action);
 			} else {
-				Ubuif.Http.getResponse().FourOhFour();
+				response.FourOhFour();
 			}
 		});
 		return this;
