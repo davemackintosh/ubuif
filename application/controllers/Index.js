@@ -4,7 +4,7 @@ function IndexController () {
 	
 	this.indexAction = function () {
 		Ubuif.View.title = 'UBUIF FRAMEWORK TEST';
-		Ubuif.View.name = 'Dave';
+		Ubuif.View.userName = 'Dave';
 	};
 	
 	return this;
