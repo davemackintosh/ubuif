@@ -43,4 +43,4 @@ function Frontend () {
 };
 
 module.exports = Frontend;
-Ubuif.Frontend = Frontend();
+Ubuif.Frontend = Frontend;
