@@ -2,7 +2,7 @@ function View () {
 
 	// Our default rendering engine is Mustache.
 	var engine = Ubuif.private.config.front.engine || 
-		'mustache';
+		'ubuivoo';
 
 	// We need a common API for our rendering engines so 
 	// lets grab the adapter
@@ -12,7 +12,7 @@ function View () {
 		var data = {
 			"this": data
 		};
-		
+
 		Ubuif.View.Body = this.adapter.render(content, data);
 		
 		return this;
