@@ -14,3 +14,10 @@ new Ubuif.Autoloader();
  * bootstrap will work OK.
  */
 Ubuif.Bootstrap().run('Ubuif/../../application/configs');
+
+/**
+ * Add a sensible listener for errors to handle exceptions better
+ */
+process.on('uncaughtException', function (err) {
+	return new Ubuif.Exception(err);
+});
