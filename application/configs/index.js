@@ -22,7 +22,7 @@ function UbuiConfig (environment) {
 			"port": 8080
 		},
 		"front": {
-			"engine": "mustache"
+			"engine": "ubuivoo"
 		}
 	};
 	
@@ -38,7 +38,7 @@ function UbuiConfig (environment) {
 			"port": 8080
 		},
 		"front": {
-			"engine": "mustache"
+			"engine": "ubuivoo"
 		}
 	};
 	
@@ -54,7 +54,7 @@ function UbuiConfig (environment) {
 			"port": 8080
 		},
 		"front": {
-			"engine": "mustache"
+			"engine": "ubuivoo"
 		}
 	};
 	
@@ -70,7 +70,7 @@ function UbuiConfig (environment) {
 			"port": 8080
 		},
 		"front": {
-			"engine": "mustache"
+			"engine": "ubuivoo"
 		}
 	};
 	
