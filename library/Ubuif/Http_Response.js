@@ -17,15 +17,10 @@ function Http_Response (response) {
 		return this;
 	};
 	
-	this.setBody = function (body) {
-		_body = body;
-		return this;
+	this.getRawResponse = function () {
+		return _response;
 	};
-	
-	this.getBody = function () {
-		return _body;
-	};
-	
+
 	this.FourOhFour = function () {
 		_response.writeHead(404, {
 			"Content-Type": "text/plain"
@@ -37,7 +32,7 @@ function Http_Response (response) {
 	this.setHeader = function (header, options) {
 		_response.writeHead(header, options);
 	};
-	
+
 	this.render = function (view) {
 		var vari;
 		// Check we have the view file
@@ -66,11 +61,13 @@ function Http_Response (response) {
 		Ubuif.View().renderView(viewScript, Ubuif.View);
 		
 		// Then we want to render the layout
-		Ubuif.View().renderLayout();
+		_response.write(Ubuif.View().renderLayout());
 		
 		// End the reponse
 		_response.end();
 	};
+	
+	return this;
 };
 
 Ubuif.Http_Response = Http_Response();
