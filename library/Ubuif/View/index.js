@@ -14,7 +14,7 @@ function View () {
 		};
 
 		Ubuif.View.Body = this.adapter.render(content, data);
-		
+
 		return this;
 	}
 
@@ -28,7 +28,8 @@ function View () {
 		
 		Ubuif.View.Layout = this.adapter.render(content, data);
 		
-		return this;
+		// This includes our compiled view & Layout
+		return Ubuif.View.Layout;
 	};
 	
 	return this;
