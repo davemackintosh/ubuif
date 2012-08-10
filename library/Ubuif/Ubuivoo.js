@@ -1,15 +1,17 @@
 function Voo () {
 	var vm = require('vm');
-	
+
 	this.render = function (content, context) {
-		return vm.runInNewContext(this.compile(content), context);
+		content = this.compile(content);
+
+		return vm.runInNewContext(content, context);
 	};
-	
+
 	this.compile = function (content) {
 		var __ = "this.__compiled = '";
-		
-		content.replace(/\#(.*?)\#/g, "' +$1+ '");
-		
+
+		__ += content.replace(/\#(.*?)\#/g, "' +$1+ '");
+
 		return __ + "';";
 	};
 };
