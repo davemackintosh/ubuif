@@ -47,7 +47,7 @@ function FileSystem () {
 	this.getFileContents = function (file, callback) {
 		file = file.toString();
 		
-		fs.readFile(file, function (error, contents) {
+		fs.readFile(file, 'ascii', function (error, contents) {
 			if (error === null) {
 				callback(contents);
 			} else {
