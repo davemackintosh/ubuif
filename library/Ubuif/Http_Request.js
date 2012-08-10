@@ -7,7 +7,7 @@ function Http_Request (request) {
 		
 	// These are set by setController/Action
 	this.forceController = false;
-	this.forceAction	   = false;
+	this.forceAction = false;
 	
 	this.getUrlParts = function () {
 		return _request_uri.split('/').slice(1);

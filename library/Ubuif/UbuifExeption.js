@@ -1,14 +1,14 @@
 function UbuifException (message) {
-	var _response = Ubuif.Http_Response.getRawResponse();
-	console.log(message.getMessage());
+	var _response = Ubuif.Http.getResponse().getRawResponse();
+
 	_response.writeHead(500, {
-		"Content-Type": "text/plain"
+		"Content-Type": "text/html"
 	});
 	
-	_response.write(message['TypeError']);
-	
-	_response.end();
-	
+	_response.write('<h1>ERROR</h1>');
+
+	_response.end('<pre>' + message.stack + '</pre>');
+
 	return this;
 };
 

@@ -3,7 +3,7 @@ function Http () {
 		http = require('http'),
 		_server, _request, _response,
 		_port = Ubuif.private.config.server.port;
-	
+
 	/*This function is simply a wrapper for
 	our other classes Http_Request and Http_Response*/
 	_server = http.createServer(function (request, response) {
@@ -23,25 +23,25 @@ function Http () {
 	} catch (e) {
 		throw Error(e);
 	}
-	
+
 	this.getRequest = function () {
 		return _request;
 	};
-	
+
 	this.getResponse = function () {
 		return _response;
 	};
-	
+
 	this.setController = function (controller) {
-		Ubuif.Http_Request().forceController = controller.toString();
+		Ubuif.Http_Request.forceController = controller.toString();
 		return this;
 	};
-	
+
 	this.setAction = function (action) {
-		Ubuif.Http_Request().forceAction = action.toString();
+		Ubuif.Http_Request.forceAction = action.toString();
 		return this;
 	};
-	
+
 	return this;
 };
 
