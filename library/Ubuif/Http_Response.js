@@ -45,7 +45,7 @@ function Http_Response (response) {
 		// Then we want to render the layout
 		// TODO get layout in here properly
 		Ubuif.FileSystem.getFileContents('application/layouts/layout.html', function (conts) {
-console.log(conts);
+
 			// End the reponse
 			_response.write(Ubuif.View().renderLayout(conts, Ubuif.View));
 			

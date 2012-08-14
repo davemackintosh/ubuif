@@ -10,7 +10,7 @@ function View () {
 	
 	this.renderView = function (content, data) {
 		var data = {
-			"this": data
+			"view": data
 		};
 
 		Ubuif.View.Body = this.adapter.render(content, data);
@@ -20,7 +20,7 @@ function View () {
 
 	this.renderLayout = function (content, data) {
 		var data = {
-			"this": data,
+			"view": data,
 			"Ubuif": {
 				"Body": Ubuif.View.Body
 			}

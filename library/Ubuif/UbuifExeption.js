@@ -8,6 +8,8 @@ function UbuifException (message) {
 	_response.write('<h1>ERROR</h1>');
 
 	_response.end('<pre>' + message.stack + '</pre>');
+	
+	console.log(message.stack);
 
 	return this;
 };
