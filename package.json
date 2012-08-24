@@ -13,7 +13,8 @@
   "dependencies": {},
   "devDependencies": {
     "glob": "*",
-    "mustache" : "*"
+    "mustache" : "*",
+    "supervisor": "*"
   },
   "optionalDependencies": {},
   "engines": {
