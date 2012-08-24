@@ -7,8 +7,8 @@ function Http_Response (response) {
 		_content;
 
 	this.header = function (header, type) {
-		header = Number(header) || 200;
-		type = type.toString() || 'text/plain';
+		header = header || 200;
+		type = type || 'text/html';
 
 		_response.writeHead(header, {
 			"Content-Type": type
@@ -40,16 +40,19 @@ function Http_Response (response) {
 		// Tell the front end to render the view first
 		Ubuif.FileSystem.getFileContents(viewScript, function (conts) {
 			Ubuif.View().renderView(conts, Ubuif.View);
-		});
-		
-		// Then we want to render the layout
-		// TODO get layout in here properly
-		Ubuif.FileSystem.getFileContents('application/layouts/layout.html', function (conts) {
-
-			// End the reponse
-			_response.write(Ubuif.View().renderLayout(conts, Ubuif.View));
 			
-			_response.end();
+			// Then we want to render the layout
+			// TODO get layout in here properly
+			Ubuif.FileSystem.getFileContents('application/layouts/layout.html', function (conts) {
+				_response.writeHead(200, {
+					"Content-Type": 'text/html'
+				});
+
+				// End the reponse
+				_response.write(Ubuif.View().renderLayout(conts, Ubuif.View));
+
+				_response.end();
+			});
 		});
 	};
 	

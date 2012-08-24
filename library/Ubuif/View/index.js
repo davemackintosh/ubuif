@@ -1,6 +1,6 @@
 function View () {
 
-	// Our default rendering engine is Mustache.
+	// Our default rendering engine is Ubuivoo.
 	var engine = Ubuif.private.config.front.engine || 
 		'ubuivoo';
 
@@ -10,7 +10,8 @@ function View () {
 	
 	this.renderView = function (content, data) {
 		var data = {
-			"view": data
+			"this": Ubuif.View(),
+			"Ubuif": Ubuif
 		};
 
 		Ubuif.View.Body = this.adapter.render(content, data);
@@ -20,10 +21,8 @@ function View () {
 
 	this.renderLayout = function (content, data) {
 		var data = {
-			"view": data,
-			"Ubuif": {
-				"Body": Ubuif.View.Body
-			}
+			"this": Ubuif.View(),
+			"Ubuif": Ubuif
 		};
 		
 		Ubuif.View.Layout = this.adapter.render(content, data);
