@@ -1,22 +1,22 @@
 {
   "author": "Dave Mackintosh (http://davemackintosh.co.uk)",
   "name": "ubuif",
-  "description": "ubui's framework",
-  "version": "0.0.0",
-  "homepage": "http://ubui.co/ubuif",
+  "description": "Node MVC framework. Bingo",
+  "version": "0.0.1",
+  "homepage": "http://ubui.co/",
   "repository": {
-    "url": ""
+    "url": "https://github.com/davemackintosh/ubuif"
   },
   "scripts": {
     "test": "ubuif test"
   },
   "dependencies": {},
   "devDependencies": {
-    "glob": "*",
-    "mustache" : "*",
-    "supervisor": "*"
+    "glob": "*"
   },
-  "optionalDependencies": {},
+  "optionalDependencies": {
+    "mustache" : "*"
+  },
   "engines": {
     "node": "*"
   }
