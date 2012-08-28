@@ -6,7 +6,7 @@ To start using Ubuif clone the repo somewhere and run these commands (in order)
 
 * npm install supervisor -g
 * cd ubuif && npm install .
-* supervisor ubuif.js development
+* supervisor ubuif.js
 
 then start developing and playing and send me all bugs and feature requests.
 
