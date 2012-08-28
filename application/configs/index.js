@@ -6,8 +6,7 @@
  */
 function UbuiConfig (environment) {
 	
-	var
-		config = [],
+	var config = [],
 		resources = [];
 	
 	config['development'] = {
