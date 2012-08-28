@@ -1,13 +1,17 @@
 function IndexController () {
 	
-	this.init = function () {};
+	this.init = function () {
+		Ubuif.View.persist = 'I\'m persistent alright..';
+	};
 	
 	this.indexAction = function () {
 		Ubuif.View.title = 'UBUIF FRAMEWORK TEST';
 		Ubuif.View.userName = 'Dave';
 	};
 	
-	return this;
+	this.testAction = function () {
+		
+	};
 }
 
 module.exports = IndexController;

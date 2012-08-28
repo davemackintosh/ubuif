@@ -13,7 +13,7 @@ Ubuif.Colour = function () {
 	
 	this.addColour = function (name, value) {
 		if (!name || !value) {
-			throw TypeError('Not enough arguments to Ubuif.Colour', 15, 15);
+			throw TypeError('Not enough arguments to Ubuif.Colour');
 		} else {
 			this.colours[name] = value;
 		}

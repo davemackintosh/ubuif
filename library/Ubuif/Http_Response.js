@@ -35,6 +35,7 @@ function Http_Response (response) {
 		// Open the instance of the requested controller
 		// with the scope of Ubuif.Http
 		_response.controller = new (require(controller))();
+		_response.controller.init.call(Ubuif.Http);
 		_response.controller[action + 'Action'].call(Ubuif.Http);
 		
 		// Tell the front end to render the view first

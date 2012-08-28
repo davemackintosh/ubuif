@@ -2,9 +2,9 @@ function Voo () {
 
 	this.compile = function (content) {
 		var __ = "this.__compiled = '";
-		
 		__ += content.replace(/\#(.*?)\#/g, "' + $1 + '");
-		__ = __.replace(/\s+/g, '');
+		// Pesky new line characters
+		__ = __.replace(/\n+/g, '');
 		return __ + "';";
 	};
 	

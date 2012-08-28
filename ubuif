@@ -22,6 +22,12 @@
 			case 'restart':
 				kill(true);
 			break;
+			case 'install':
+				exec('npm install .');
+			break;
+			case 'update':
+				exec('npm update .');
+			break;
 		}
 	});
 	

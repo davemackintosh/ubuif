@@ -8,23 +8,21 @@ function View () {
 	// lets grab the adapter
 	this.adapter = require('./' + engine + 'Adapter.js');
 	
-	this.renderView = function (content, data) {
+	this.renderView = function (content) {
 		var data = {
-			"this": Ubuif.View(),
+			"view": Ubuif.View,
 			"Ubuif": Ubuif
 		};
-
 		Ubuif.View.Body = this.adapter.render(content, data);
 
 		return this;
 	}
 
-	this.renderLayout = function (content, data) {
+	this.renderLayout = function (content) {
 		var data = {
-			"this": Ubuif.View(),
+			"view": Ubuif.View,
 			"Ubuif": Ubuif
 		};
-		
 		Ubuif.View.Layout = this.adapter.render(content, data);
 		
 		// This includes our compiled view & Layout
