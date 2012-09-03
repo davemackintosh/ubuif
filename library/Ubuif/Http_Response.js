@@ -44,7 +44,7 @@ function Http_Response (response) {
 			
 			// Then we want to render the layout
 			// TODO get layout in here properly
-			Ubuif.FileSystem.getFileContents('application/layouts/layout.html', function (conts) {
+			Ubuif.FileSystem.getFileContents(Ubuif.Frontend().getLayout(), function (conts) {
 				_response.writeHead(200, {
 					"Content-Type": 'text/html'
 				});
