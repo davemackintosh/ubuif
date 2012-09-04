@@ -2,19 +2,19 @@ function Frontend () {
 
 	// The directory where we keep out layouts
 	this.LAYOUT_DIR = Ubuif.private.config.front.layouts ||
-		'Ubuif/../../application/layouts/';
+		'application/layouts/';
 		
 	// The directory where we keep our views
 	this.VIEWS_DIR = Ubuif.private.config.front.views ||
-		'Ubuif/../../application/views/';
+		'application/views/';
 		
 	// Yep, the directory we keep the erm.. parti...
 	this.PARTIALS_DIR = Ubuif.private.config.front.partials || 
-		'Ubuif/../../application/partials/';
+		'application/partials/';
 	
 	// The current layout selected
 	this.layout = this.LAYOUT_DIR + 'layout.html';
-	
+
 	this.setLayout = function (changeTo) {
 		Ubuif.FileSystem.isFile(this.LAYOUT_DIR + changeTo, function (is) {
 			if (is === true) {
@@ -28,7 +28,7 @@ function Frontend () {
 	};
 	
 	this.getLayout = function () {
-		return this.LAYOUT_DIR + this.layout
+		return this.layout
 	};
 	
 	this.render = function (view) {
@@ -46,5 +46,5 @@ function Frontend () {
 	return this;
 };
 
-Ubuif.Frontend = new Frontend;
+Ubuif.Frontend = Frontend;
 module.exports = Ubuif.Frontend;
