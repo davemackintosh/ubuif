@@ -1,20 +1,39 @@
+/**
+ * The request class as instantiated by http.createServer
+ * INCOMPLETE;
+ * TODO:
+ *	make this useful
+ *	streamline and separate request/response
+ */
 function Http_Request (request) {
-	
-	var
-		_server = request.headers.host,
-		_request_uri = request.url,
-		path = require('path');
-		
-	// These are set by setController/Action
+	/**
+	 * The server name, don't remember why I wanted this
+	 * I'll probably get rid of it.
+	 * @param string
+	 */
+	var _server = request.headers.host;
+	/**
+	 * Similar story with this, should be inside a function
+	 * not a class private.
+	 * @param string
+	 */
+	var _request = request;
+
+	// These are set by setController/Action methods
 	this.forceController = false;
 	this.forceAction = false;
-	
+
+	/**
+	 * Splits the requested url and returns an array
+	 * @return array
+	 */
 	this.getUrlParts = function () {
+		var _request_uri = _request.url;
 		return _request_uri.split('/').slice(1);
 	};
 	
 	this.isPost = function () {
-		return (request.method === 'POST');
+		return (_request.method === 'POST');
 	};
 	
 	this.getPost = function (key) {
@@ -66,7 +85,7 @@ function Http_Request (request) {
 			if (is === true) {
 				response.deliver(requirePath, action);
 			} else {
-				response.FourOhFour();
+				throw new Ubuif.Exception('Controller cannot be found');
 			}
 		});
 		return this;
