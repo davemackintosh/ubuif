@@ -10,7 +10,9 @@ function IndexController () {
 	};
 	
 	this.testAction = function () {
-		
+		this.getFrontEnd().setLayout('test.html');
+		Ubuif.View.welcome = 'Joe Blogs';
+		Ubuif.View.message = 'It\'s a Madhouse.';
 	};
 }
 
