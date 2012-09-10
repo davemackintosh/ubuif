@@ -11,24 +11,14 @@ function Frontend () {
 	// Yep, the directory we keep the erm.. parti...
 	this.PARTIALS_DIR = Ubuif.private.config.front.partials || 
 		'application/partials/';
-	
-	// The current layout selected
-	this.layout = this.LAYOUT_DIR + 'layout.html';
 
 	this.setLayout = function (changeTo) {
-		Ubuif.FileSystem.isFile(this.LAYOUT_DIR + changeTo, function (is) {
-			if (is === true) {
-				this.layout = this.LAYOUT_DIR + changeTo;
-			} else {
-				throw Error('The file "' + changeTo + '" does not exist in the location specified');
-			}
-		});
-		
+		this.layout = this.LAYOUT_DIR + changeTo;
 		return this;
 	};
 	
 	this.getLayout = function () {
-		return this.layout
+		return this.layout ? this.layout : this.LAYOUT_DIR + 'layout.html';
 	};
 	
 	this.render = function (view) {
