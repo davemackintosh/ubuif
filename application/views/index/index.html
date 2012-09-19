@@ -2,3 +2,32 @@
 <h5>Are you persistent?</h5>
 <strong>#view.persist#</strong>
 <p>Im #view.userName#, nice to meet you!</p>
+<h3>Loops!</h3>
+<ul>
+	<li><strong>Boring object</strong></li>
+	##view.testObject#
+	<li>#key# = #view.testObject[key]#</li>
+	#view.testObject##
+</ul>
+
+<ul>
+	<li><strong>Boring array</strong></li>
+	##view.testArray#
+	<li>#key# = #view.testArray[key]#</li>
+	#view.testArray##
+</ul>
+
+<ul>
+	<li><strong>multi-dimensional/typed array</strong></li>
+	##view.multidimensional#
+	#=newkey=key#
+	<li>
+		<strong>#newkey#</strong>
+		<ul>
+			##view.multidimensional[newkey]#
+			<li>#key# = #view.multidimensional[newkey][key]#</li>
+			#view.multidimensional[newkey]##
+		</ul>
+	</li>
+	#view.multidimensional##
+</ul>
