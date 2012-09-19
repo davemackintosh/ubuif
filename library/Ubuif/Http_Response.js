@@ -86,7 +86,7 @@ function Http_Response (response) {
 				});
 
 				// End the reponse
-				_response.write(Ubuif.View().renderLayout(conts, Ubuif.View));
+				_response.write(Ubuif.View().renderLayout(conts, Ubuif.View).replace(/\#newline\#/gi, "\n"));
 
 				_response.end();
 			});
