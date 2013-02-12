@@ -21,7 +21,8 @@ function View () {
 	this.renderLayout = function (content) {
 		var data = {
 			"view": Ubuif.View,
-			"Ubuif": Ubuif
+			"Ubuif": Ubuif,
+			"Body": Ubuif.View.Body
 		};
 		Ubuif.View.Layout = this.adapter.render(content, data);
 		
