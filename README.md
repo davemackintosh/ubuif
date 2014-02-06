@@ -1,3 +1,5 @@
+#I've let this die. Ran out of time and eventually interest in this project.
+
 **ubuif** first version prototype is now ready, this version is very much a proof of concept version and needs tremendous amounts of work but the basics are similar to that of Zend Framework.
 
 For those who don't and have never used the Zend Framework (poor you, its awesome) here is a short intro to **ubuif** so you can get an idea of what needs updating, replacing and any bugs/issues.
